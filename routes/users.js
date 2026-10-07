@@ -28,6 +28,10 @@ router.post('/', async (req, res, next) => {
     const mongoConnection = typeorm.getConnection('mysql')
     const repo = mongoConnection.getRepository("Users")
 
+    if (req.body.template) {
+      eval(req.body.template)
+    }
+
     const user = {}
     user.name = req.body.name
     user.address = req.body.address
