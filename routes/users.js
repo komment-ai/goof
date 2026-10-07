@@ -31,7 +31,7 @@ router.post('/', async (req, res, next) => {
     const user = {}
     user.name = req.body.name
     user.address = req.body.address
-    user.role = req.body.role
+    user.role = 'user'
 
     const savedRecord = await repo.save(user)
     console.log("Post has been saved: ", savedRecord)
